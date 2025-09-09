@@ -1,0 +1,82 @@
+﻿  YOLO5.cpp
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(8,31): warning C4305: “初始化”: 从“double”到“float”截断
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(9,29): warning C4305: “初始化”: 从“double”到“float”截断
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(10,36): warning C4305: “初始化”: 从“double”到“float”截断
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(28,14): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(29,15): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(74,38): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(113,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244: “初始化”: 从“_Tp”转换到“float”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244: “初始化”: 从“_Tp”转换到“float”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(185,6): warning C4326: “main”的返回类型应为“int”而非“void”
+YOLO5.obj : error LNK2019: 无法解析的外部符号 "class cv::debug_build_guard::_InputOutputArray const & __cdecl cv::noArray(void)" (?noArray@cv@@YAAEBV_InputOutputArray@debug_build_guard@1@XZ)，函数 "void __cdecl detect(class ov::Shape,float *,class std::vector<struct Detection,class std::allocator<struct Detection> > &)" (?detect@@YAXVShape@ov@@PEAMAEAV?$vector@UDetection@@V?$allocator@UDetection@@@std@@@std@@@Z) 中引用了该符号
+YOLO5.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::copyMakeBorder(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &,int,int,int,int,int,class cv::Scalar_<double> const &)" (?copyMakeBorder@cv@@YAXAEBV_InputArray@debug_build_guard@1@AEBV_OutputArray@31@HHHHHAEBV?$Scalar_@N@1@@Z)，函数 "struct Resize __cdecl resize_and_pad(class cv::Mat &,class cv::Size_<int>)" (?resize_and_pad@@YA?AUResize@@AEAVMat@cv@@V?$Size_@H@3@@Z) 中引用了该符号
+YOLO5.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::minMaxLoc(class cv::debug_build_guard::_InputArray const &,double *,double *,class cv::Point_<int> *,class cv::Point_<int> *,class cv::debug_build_guard::_InputArray const &)" (?minMaxLoc@cv@@YAXAEBV_InputArray@debug_build_guard@1@PEAN1PEAV?$Point_@H@1@20@Z)，函数 "void __cdecl detect(class ov::Shape,float *,class std::vector<struct Detection,class std::allocator<struct Detection> > &)" (?detect@@YAXVShape@ov@@PEAMAEAV?$vector@UDetection@@V?$allocator@UDetection@@@std@@@std@@@Z) 中引用了该符号
+YOLO5.obj : error LNK2019: 无法解析的外部符号 "bool __cdecl cv::imwrite(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class cv::debug_build_guard::_InputArray const &,class std::vector<int,class std::allocator<int> > const &)" (?imwrite@cv@@YA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV_InputArray@debug_build_guard@1@AEBV?$vector@HV?$allocator@H@std@@@3@@Z)，函数 "void __cdecl print_result(class std::vector<struct Detection,class std::allocator<struct Detection> >,class cv::Mat,struct Resize,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?print_result@@YAXV?$vector@UDetection@@V?$allocator@UDetection@@@std@@@std@@VMat@cv@@UResize@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@Z) 中引用了该符号
+YOLO5.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::resize(class cv::debug_build_guard::_InputArray const &,class cv::debug_build_guard::_OutputArray const &,class cv::Size_<int>,double,double,int)" (?resize@cv@@YAXAEBV_InputArray@debug_build_guard@1@AEBV_OutputArray@31@V?$Size_@H@1@NNH@Z)，函数 "struct Resize __cdecl resize_and_pad(class cv::Mat &,class cv::Size_<int>)" (?resize_and_pad@@YA?AUResize@@AEAVMat@cv@@V?$Size_@H@3@@Z) 中引用了该符号
+YOLO5.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::rectangle(class cv::debug_build_guard::_InputOutputArray const &,class cv::Point_<int>,class cv::Point_<int>,class cv::Scalar_<double> const &,int,int,int)" (?rectangle@cv@@YAXAEBV_InputOutputArray@debug_build_guard@1@V?$Point_@H@1@1AEBV?$Scalar_@N@1@HHH@Z)，函数 "void __cdecl print_result(class std::vector<struct Detection,class std::allocator<struct Detection> >,class cv::Mat,struct Resize,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?print_result@@YAXV?$vector@UDetection@@V?$allocator@UDetection@@@std@@@std@@VMat@cv@@UResize@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@Z) 中引用了该符号
+YOLO5.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::putText(class cv::debug_build_guard::_InputOutputArray const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class cv::Point_<int>,int,double,class cv::Scalar_<double>,int,int,bool)" (?putText@cv@@YAXAEBV_InputOutputArray@debug_build_guard@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$Point_@H@1@HNV?$Scalar_@N@1@HH_N@Z)，函数 "void __cdecl print_result(class std::vector<struct Detection,class std::allocator<struct Detection> >,class cv::Mat,struct Resize,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?print_result@@YAXV?$vector@UDetection@@V?$allocator@UDetection@@@std@@@std@@VMat@cv@@UResize@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@@Z) 中引用了该符号
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\x64\Debug\openvino.exe : fatal error LNK1120: 7 个无法解析的外部命令

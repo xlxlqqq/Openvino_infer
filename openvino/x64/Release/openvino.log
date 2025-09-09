@@ -1,0 +1,80 @@
+﻿  YOLO5.cpp
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(8,31): warning C4305: “初始化”: 从“double”到“float”截断
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(9,29): warning C4305: “初始化”: 从“double”到“float”截断
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(10,36): warning C4305: “初始化”: 从“double”到“float”截断
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(28,14): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(29,15): warning C4244: “初始化”: 从“int”转换到“float”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(74,38): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,45): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,42): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,36): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(91,30): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(113,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(128,14): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(129,14): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(130,18): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(131,19): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244: “初始化”: 从“_Tp”转换到“float”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(151,14): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244: “初始化”: 从“_Tp”转换到“float”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(152,14): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,63): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(155,57): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244: “参数”: 从“float”转换到“_Tp”，可能丢失数据
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244:         with
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244:         [
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244:             _Tp=int
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(156,62): warning C4244:         ]
+D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\YOLO5.cpp(185,6): warning C4326: “main”的返回类型应为“int”而非“void”
+  正在生成代码
+  86 of 610 functions (14.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    12 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  openvino.vcxproj -> D:\xlxlqqq\engineerLib\VisualStudio22\openvino\openvino\x64\Release\openvino.exe
