@@ -17,6 +17,19 @@ yolo5_batch.cpp
 ## 介绍
 使用OpenVINO一次推理多个张量，需要配合多个张量的OpenVINO IR格式的模型（模型xml文件里面输入层有写输入张量的维度）
 
+## 模型导出
+使用YOLOv5 v7.0版本的仓库，在导出时可以选择如下命令：
+python export.py --dynamic --batch-size 16生成不同BatchSize的模型
+如果借助onnx模型作为中间模型表示，则在onnx转化OpenVINO IR格式的时候，需要使用如下命令：
+mo_command = [
+    "mo",
+    "--input_model", onnx_model_path,
+    "--output_dir", output_dir,
+    "--framework", "onnx",
+    "--input", "images[16,3,640,640]"  # 支持动态 batch
+]
+
+
 ## 特别说明
 OpenVINO IR可以有动态张量，即 ?CWH 动态形状，但是动态形状不一定有单张推理的快，因此不采用动态形状的输入。
 
