@@ -3,6 +3,9 @@
 #include <opencv2/dnn.hpp>
 #include <iostream>
 
+#include <openvino/openvino.hpp>
+#include <stdlib.h>
+
 
 const float SCORE_THRESHOLD = 0.2;
 const float NMS_THRESHOLD = 0.4;
