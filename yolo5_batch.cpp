@@ -25,39 +25,6 @@ struct Resize
 	int dh;
 };
 
-Resize resize_and_pad(cv::Mat& img, cv::Size new_shape) {
-	float width = img.cols;
-	float height = img.rows;
-	float r = float(new_shape.width / std::max(width, height));
-	int new_unpadW = int(round(width * r));
-	int new_unpadH = int(round(height * r));
-	Resize resize;
-	cv::resize(img, resize.resized_image, cv::Size(new_unpadW, new_unpadH), 0, 0, cv::INTER_AREA);
-
-	resize.dw = new_shape.width - new_unpadW;
-	resize.dh = new_shape.height - new_unpadH;
-	cv::Scalar color = cv::Scalar(100, 100, 100);
-	cv::copyMakeBorder(resize.resized_image, resize.resized_image, 0, resize.dh, 0, resize.dw, cv::BORDER_CONSTANT, color);
-
-	return resize;
-}
-
-void init_image(std::string img_path, cv::Mat& img, Resize& res, ov::InferRequest& infer_request, ov::CompiledModel compiled_model)
-{
-	img = cv::imread(img_path);
-	// resize image
-	res = resize_and_pad(img, cv::Size(640, 640));
-
-	// Step 5. Create tensor from image
-	float* input_data = (float*)res.resized_image.data;
-	ov::Tensor input_tensor = ov::Tensor(compiled_model.input().get_element_type(), compiled_model.input().get_shape(), input_data);
-
-	// Step 6. Create an infer request for model inference 
-	infer_request = compiled_model.create_infer_request();
-	infer_request.set_input_tensor(input_tensor);
-	infer_request.infer();
-}
-
 /// <summary>
 /// 用于一次读取多张图像,组成 B x 3 x W x H 的输入矩阵
 /// </summary>
@@ -90,119 +57,6 @@ float* init_images_batch(const std::vector<std::string>& img_paths) {
 	return blob_data;
 }
 
-/*¼ì²âÍ¼Ïñ*/
-void detect(ov::Shape output_shape, float* detections, std::vector<Detection>& output)
-{
-	// Step 8. Postprocessing including NMS  
-	std::vector<cv::Rect> boxes;
-	std::vector<int> class_ids;
-	std::vector<float> confidences;
-
-	for (int i = 0; i < output_shape[1]; i++) {
-		float* detection = &detections[i * output_shape[2]];
-
-		float confidence = detection[4];
-		if (confidence >= CONFIDENCE_THRESHOLD) {
-			float* classes_scores = &detection[5];
-			cv::Mat scores(1, output_shape[2] - 5, CV_32FC1, classes_scores);
-			cv::Point class_id;
-			double max_class_score;
-			cv::minMaxLoc(scores, 0, &max_class_score, 0, &class_id);
-
-			if (max_class_score > SCORE_THRESHOLD) {
-				confidences.push_back(confidence);
-				class_ids.push_back(class_id.x);
-
-				float x = detection[0];
-				float y = detection[1];
-				float w = detection[2];
-				float h = detection[3];
-
-				float xmin = x - (w / 2);
-				float ymin = y - (h / 2);
-
-				boxes.push_back(cv::Rect(xmin, ymin, w, h));
-			}
-		}
-	}
-
-	std::vector<int> nms_result;
-	cv::dnn::NMSBoxes(boxes, confidences, SCORE_THRESHOLD, NMS_THRESHOLD, nms_result);
-
-	for (int i = 0; i < nms_result.size(); i++)
-	{
-		Detection result;
-		int idx = nms_result[i];
-		result.class_id = class_ids[idx];
-		result.confidence = confidences[idx];
-		result.box = boxes[idx];
-		output.push_back(result);
-	}
-}
-
-/*»æÖÆ·ÖÑ¡¿ò£¬ÊµÏÖresizeÏòÔ­Í¼ÏñµÄ×ª»»*/
-void print_result(std::vector<Detection> output, cv::Mat img, Resize res, std::string result_path)
-{
-	int index = result_path.find(".jpg");
-	std::string sub_path = result_path.substr(0, index);
-	cv::Mat cropped;
-	int offset = 2;
-
-	// Step 9. Print results and save Figure with detections
-	for (int i = 0; i < output.size(); i++)
-	{
-		auto detection = output[i];
-		auto box = detection.box;
-		auto classId = detection.class_id;
-		auto confidence = detection.confidence;
-		float rx = (float)img.cols / (float)(res.resized_image.cols - res.dw);
-		float ry = (float)img.rows / (float)(res.resized_image.rows - res.dh);
-
-		box.x = rx * box.x;
-		box.y = ry * box.y;
-		box.width = rx * box.width;
-		box.height = ry * box.height;
-
-		box.x = std::max(0, box.x - offset);
-		box.y = std::max(0, box.y - offset);
-		box.width = std::min(box.width + 2 * offset, img.cols - box.x);
-		box.height = std::min(box.height + 2 * offset, img.rows - box.y);
-
-		//cout << box.x << "\t" << box.y << "\t" << box.width << "\t" << box.height << endl;
-
-		cropped = img(box);
-		std::string subsub = sub_path + "_" + std::to_string(i) + ".jpg";
-		cv::imwrite(subsub, cropped);
-
-		//cout << "Bbox" << i + 1 << ": Class: " << classId << " "
-		//	<< "Confidence: " << confidence << " Scaled coords: [ "
-		//	<< "cx: " << (float)(box.x + (box.width / 2)) / img.cols << ", "
-		//	<< "cy: " << (float)(box.y + (box.height / 2)) / img.rows << ", "
-		//	<< "w: " << (float)box.width / img.cols << ", "
-		//	<< "h: " << (float)box.height / img.rows << " ]" << endl;
-
-		float xmax = box.x + box.width;
-		float ymax = box.y + box.height;
-
-		// ¼ÆËãÖÐÐÄ×ø±ê
-		float cx = box.x + box.width / 2.0f;
-		float cy = box.y + box.height / 2.0f;
-
-		// Êä³öÖÐÐÄ×ø±ê
-		std::cout << "Detection " << i + 1 << " center: (cx: " << cx << ", cy: " << cy << ")" << std::endl;
-
-		std::cout << detection.class_id << std::endl;
-		cv::rectangle(img, cv::Point(box.x, box.y), cv::Point(xmax, ymax), cv::Scalar(0, 255, 0), 3);
-		cv::rectangle(img, cv::Point(box.x, box.y - 20), cv::Point(xmax, box.y), cv::Scalar(0, 255, 0), cv::FILLED);
-		cv::putText(img, std::to_string(classId), cv::Point(box.x, box.y - 5), cv::FONT_HERSHEY_SIMPLEX, 2, cv::Scalar(0, 0, 0));
-
-		// ½«ÖÐÐÄ×ø±êÏÔÊ¾ÔÚÍ¼ÏñÉÏ
-		std::string center_text = "Center: (" + std::to_string(int(cx)) + ", " + std::to_string(int(cy)) + ")";
-		cv::putText(img, center_text, cv::Point(box.x, box.y + box.height + 10), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 0, 0), 2);
-	}
-	cv::imwrite(result_path, img);
-}
-
 void init_model(std::string model_path, ov::CompiledModel& compiled_model)
 {
 	/*init model*/
@@ -225,6 +79,13 @@ void init_model(std::string model_path, ov::CompiledModel& compiled_model)
 	compiled_model = core.compile_model(model, "AUTO");
 }
 
+/// <summary>
+/// 推理结果解包裹为std::vector<std::vector<Detection>>
+/// </summary>
+/// <param name="output"></param>
+/// <param name="output_shape"></param>
+/// <param name="batch_detections"></param>
+/// <param name="conf_thresh"></param>
 void detect_batch(const float* output, const ov::Shape& output_shape,
 	std::vector<std::vector<Detection>>& batch_detections,
 	float conf_thresh = 0.25)
@@ -274,6 +135,49 @@ void detect_batch(const float* output, const ov::Shape& output_shape,
 	}
 }
 
+/// <summary>
+/// NMS（非极大抑制），将相似相近的检测框排除掉，只保留置信度最高的复选框
+/// </summary>
+/// <param name="batch_detections"></param>
+/// <param name="score_thresh"></param>
+/// <param name="nms_thresh"></param>
+void nms_batch_detections(
+	std::vector<std::vector<Detection>>& batch_detections,
+	float score_thresh = SCORE_THRESHOLD,
+	float nms_thresh = NMS_THRESHOLD)
+{
+	for (auto& detections : batch_detections) {
+		std::vector<Detection> nms_result;
+
+		// 按类别分别做 NMS（class-aware）
+		std::map<int, std::vector<int>> class_map;
+		for (int i = 0; i < detections.size(); ++i) {
+			class_map[detections[i].class_id].push_back(i);
+		}
+
+		for (auto& cls : class_map) {
+			std::vector<cv::Rect> boxes;
+			std::vector<float> scores;
+			std::vector<int> indices = cls.second;
+
+			for (int idx : indices) {
+				boxes.push_back(detections[idx].box);
+				scores.push_back(detections[idx].confidence);
+			}
+
+			std::vector<int> keep;
+			cv::dnn::NMSBoxes(boxes, scores, score_thresh, nms_thresh, keep);
+
+			for (int k : keep) {
+				nms_result.push_back(detections[indices[k]]);
+			}
+		}
+
+		detections.swap(nms_result);
+	}
+}
+
+
 
 int main()
 {
@@ -312,12 +216,15 @@ int main()
 	std::vector<std::vector<Detection>> batch_detections;
 	detect_batch(detections, output_shape, batch_detections);
 
+	// NMS非极大抑制
+	nms_batch_detections(batch_detections);
+
 	// 打印位置图
 	for (int i = 0; i < batch_detections.size(); i++) {
 		std::vector<Detection> detection_img = batch_detections[i];
 		std::cout << "image" << i << " detections: " << detection_img.size() << std::endl;
 		for (int j = 0; j < detection_img.size(); j++) {
-			Detection detection = detection_img[i];
+			Detection detection = detection_img[j];
 			std::cout << detection.class_id << " " << detection.confidence << " " << detection.box.x << " " << detection.box.y << " " << detection.box.width << " " << detection.box.height << std::endl;
 		}
 	}
