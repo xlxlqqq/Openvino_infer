@@ -33,6 +33,42 @@ mo_command = [
 ## 特别说明
 OpenVINO IR可以有动态张量，即 ?CWH 动态形状，但是动态形状不一定有单张推理的快，因此不采用动态形状的输入。
 
+## 可能的优化空间
+### OpenVINO 提供了 前处理方法，能够合理调用 SIMD 进行优化和cache优化，可以进行尝试
+    inferBatch::inferBatch(...) {
+    
+        ov::Model model = core_.read_model(model_path_);
+    
+        ov::preprocess::PrePostProcessor ppp(model);
+    
+        ppp.input()
+           .tensor()
+           .set_element_type(ov::element::u8)
+           .set_layout("NHWC")
+           .set_color_format(ov::preprocess::ColorFormat::BGR);
+    
+        ppp.input()
+           .preprocess()
+           .convert_color(ov::preprocess::ColorFormat::RGB)
+           .resize(ov::preprocess::ResizeAlgorithm::RESIZE_LINEAR)
+           .convert_element_type(ov::element::f32)
+           .scale(255.0f);
+    
+        ppp.input()
+           .model()
+           .set_layout("NCHW");
+    
+        model = ppp.build();
+    
+        compiled_model_ = core_.compile_model(model, "CPU");
+        infer_request_ = compiled_model_.create_infer_request();
+    }
+![Uploading 图片.png…]()
+
+
+### 工程健壮性
+外部接口均由inferBatch.infer()执行，不够健壮。建议单独设计前处理，后处理，infer推理类。
+
 # OpenVINO for PTV2
 ## 代码文件
 PTV2.cpp
