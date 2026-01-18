@@ -2,6 +2,7 @@
 #include <cmath>
 #include <opencv2/dnn.hpp>
 #include <iostream>
+#include <chrono>
 
 #include <openvino/openvino.hpp>
 #include <stdlib.h>
@@ -201,8 +202,11 @@ void main()
 	// 遍历路径下的每一张图像
 	for (int i = 0; i < images_path.size(); i++)
 	{
+		auto startTime = std::chrono::steady_clock::now();
 		// 将图像预处理至模型所需要条件下
 		init_image(images_path[i], img, res, infer_request, compiled_model);
+		auto endTime = std::chrono::steady_clock::now();
+		std::cout << "init_image time: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count() << "ms" << std::endl;
 
 		const ov::Tensor& output_tensor = infer_request.get_output_tensor();
 		ov::Shape output_shape = output_tensor.get_shape();
