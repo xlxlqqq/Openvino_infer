@@ -4,6 +4,7 @@
 #include <iostream>
 #include <openvino/openvino.hpp>
 #include <stdlib.h>
+#include <chrono>
 
 
 const float SCORE_THRESHOLD = 0.2;
@@ -57,30 +58,9 @@ float* init_images_batch(const std::vector<std::string>& img_paths) {
 	return blob_data;
 }
 
-void init_model(std::string model_path, ov::CompiledModel& compiled_model)
-{
-	/*init model*/
-	// Step 1. Initialize OpenVINO Runtime core
-	ov::Core core;
-	// Step 2. Read a model
-	std::shared_ptr<ov::Model> model = core.read_model(model_path);
-	// Step 4. Inizialize Preprocessing for the model
-	ov::preprocess::PrePostProcessor ppp = ov::preprocess::PrePostProcessor(model);
-	// Specify input image format
-	ppp.input().tensor().set_element_type(ov::element::u8).set_layout("NHWC").set_color_format(ov::preprocess::ColorFormat::BGR);
-	// Specify preprocess pipeline to input image without resizing
-	ppp.input().preprocess().convert_element_type(ov::element::f32).convert_color(ov::preprocess::ColorFormat::RGB).scale({ 255., 255., 255. });
-	//  Specify model's input layout
-	ppp.input().model().set_layout("NCHW");
-	// Specify output results format
-	ppp.output().tensor().set_element_type(ov::element::f32);
-	// Embed above steps in the graph
-	model = ppp.build();
-	compiled_model = core.compile_model(model, "AUTO");
-}
 
 /// <summary>
-/// 推理结果解包裹为std::vector<std::vector<Detection>>
+/// 推理结果解包裹为vector<vector<Detection>>
 /// </summary>
 /// <param name="output"></param>
 /// <param name="output_shape"></param>
@@ -187,16 +167,23 @@ int main()
 	std::vector<std::string> images_path;
 	cv::glob(images_folder, images_path, true);
 
-	if (images_path.size() != 16) {
+	// 模型设定固定为16 * 3 * 640 * 640，如果没有这么多张图像，需要padding 0矩阵(float类型)，直到满足这个尺寸
+	// 本demo代码中没有这个处理，直接用16张图像做测试。实际使用时需要根据情况添加
+	if (images_path.size() % 16 != 0) {
 		std::cout << "Batch size must be 16" << std::endl;
 		return -1;
 	}
 
 	ov::Core core;
 	ov::CompiledModel compiled_model = core.compile_model(model_path, "CPU");
+	// 设置推理引擎属性，加速推理（官方推荐使用，但我测试不明显）
+	core.set_property("CPU", {ov::hint::performance_mode(ov::hint::PerformanceMode::THROUGHPUT)});
 	ov::InferRequest infer_request = compiled_model.create_infer_request();
 
+	auto startTime = std::chrono::steady_clock::now();
 	float* inputData = init_images_batch(images_path);
+
+	// TODO: 判断inputData是否满足 16 * 3 * 640 * 640，然后才进行下一步
 
 	// 创建输入 tensor
 	ov::Tensor input_tensor(compiled_model.input().get_element_type(),
@@ -206,6 +193,8 @@ int main()
 
 	// 推理
 	infer_request.infer();
+	auto endTime = std::chrono::steady_clock::now();
+	std::cout << "Inference time: " << std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count() << "ms" << std::endl;
 
 	// 获取输出
 	const ov::Tensor& output_tensor = infer_request.get_output_tensor();
@@ -219,7 +208,7 @@ int main()
 	// NMS非极大抑制
 	nms_batch_detections(batch_detections);
 
-	// 打印位置图
+	// test: 打印结果
 	for (int i = 0; i < batch_detections.size(); i++) {
 		std::vector<Detection> detection_img = batch_detections[i];
 		std::cout << "image" << i << " detections: " << detection_img.size() << std::endl;
